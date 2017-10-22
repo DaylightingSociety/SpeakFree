@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tips">
+        <item>Remember there are cameras and microphones in phones, laptops, and tablets</item>
+        <item>Stay away from windows</item>
+        <item>Keep this device\'s camera(s) covered</item>
+        <item>There are CCTV cameras outside</item>
+        <item>Playing random sound from multiple devices makes it harder to filter out</item>
+        <item>Leave no record of this conversation</item>
+        <item>Speak softly: You must be quieter than the static to avoid recording</item>
+        <item>Plug this device into speakers for louder and more effective jamming</item>
+        <item>Multiple phones? Put them in a pile and play noise on all of them to amplify effectiveness</item>
+        <item>Do you have a smart TV? New gaming console? Smart home? They are listening, stand in another room</item>
+    </string-array>
+
+</resources>

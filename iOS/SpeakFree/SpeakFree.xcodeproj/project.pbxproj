@@ -1,0 +1,668 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		260638631E709F5600249637 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 260638621E709F5600249637 /* Sound.m */; };
+		2609D18F1E70B27F00F77306 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 2609D18B1E70B27F00F77306 /* pause.png */; };
+		2609D1901E70B27F00F77306 /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2609D18C1E70B27F00F77306 /* pause@2x.png */; };
+		2609D1911E70B27F00F77306 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 2609D18D1E70B27F00F77306 /* play.png */; };
+		2609D1921E70B27F00F77306 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2609D18E1E70B27F00F77306 /* play@2x.png */; };
+		260FAADE1E721DD6009F31C0 /* active.png in Resources */ = {isa = PBXBuildFile; fileRef = 260FAADA1E721DD6009F31C0 /* active.png */; };
+		260FAADF1E721DD6009F31C0 /* active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 260FAADB1E721DD6009F31C0 /* active@2x.png */; };
+		260FAAE01E721DD6009F31C0 /* inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 260FAADC1E721DD6009F31C0 /* inactive.png */; };
+		260FAAE11E721DD6009F31C0 /* inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 260FAADD1E721DD6009F31C0 /* inactive@2x.png */; };
+		26102AF71E675DBC00F831F0 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 26102AF51E675DBC00F831F0 /* help.png */; };
+		26102AF81E675DBC00F831F0 /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26102AF61E675DBC00F831F0 /* help@2x.png */; };
+		26102AFF1E6762A400F831F0 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = 26102AFD1E6762A400F831F0 /* info.png */; };
+		26102B001E6762A400F831F0 /* info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26102AFE1E6762A400F831F0 /* info@2x.png */; };
+		26102B021E676F9C00F831F0 /* tips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 26102B011E676F9C00F831F0 /* tips.xml */; };
+		26102B061E678A0000F831F0 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26102B051E678A0000F831F0 /* HelpViewController.m */; };
+		26102B081E678A1000F831F0 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26102B071E678A1000F831F0 /* InfoViewController.m */; };
+		26306E5C1E67577B005F2C3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26306E5B1E67577B005F2C3F /* main.m */; };
+		26306E5F1E67577B005F2C3F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26306E5E1E67577B005F2C3F /* AppDelegate.m */; };
+		26306E621E67577B005F2C3F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26306E611E67577B005F2C3F /* ViewController.m */; };
+		26306E651E67577B005F2C3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26306E631E67577B005F2C3F /* Main.storyboard */; };
+		26306E671E67577C005F2C3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26306E661E67577C005F2C3F /* Assets.xcassets */; };
+		26306E6A1E67577C005F2C3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26306E681E67577C005F2C3F /* LaunchScreen.storyboard */; };
+		26306E751E67577C005F2C3F /* SpeakFreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26306E741E67577C005F2C3F /* SpeakFreeTests.m */; };
+		26306E801E67577C005F2C3F /* SpeakFreeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26306E7F1E67577C005F2C3F /* SpeakFreeUITests.m */; };
+		26412D3C1ECCD04500259C40 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D381ECCD04500259C40 /* plus.png */; };
+		26412D3D1ECCD04500259C40 /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D391ECCD04500259C40 /* plus@2x.png */; };
+		26412D3E1ECCD04500259C40 /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D3A1ECCD04500259C40 /* reload.png */; };
+		26412D3F1ECCD04500259C40 /* reload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D3B1ECCD04500259C40 /* reload@2x.png */; };
+		26412D441ECCD47800259C40 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D401ECCD47800259C40 /* trash.png */; };
+		26412D451ECCD47800259C40 /* trash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D411ECCD47800259C40 /* trash@2x.png */; };
+		26412D461ECCD47800259C40 /* upload.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D421ECCD47800259C40 /* upload.png */; };
+		26412D471ECCD47800259C40 /* upload@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26412D431ECCD47800259C40 /* upload@2x.png */; };
+		264CF13D1ECF75BF00A3BFD4 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 264CF13B1ECF75BF00A3BFD4 /* cancel.png */; };
+		264CF13E1ECF75BF00A3BFD4 /* cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 264CF13C1ECF75BF00A3BFD4 /* cancel@2x.png */; };
+		26D8590E1ECD10E000992384 /* SubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26D8590D1ECD10E000992384 /* SubmitViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26306E711E67577C005F2C3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26306E4F1E67577B005F2C3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26306E561E67577B005F2C3F;
+			remoteInfo = SpeakFree;
+		};
+		26306E7C1E67577C005F2C3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26306E4F1E67577B005F2C3F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26306E561E67577B005F2C3F;
+			remoteInfo = SpeakFree;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		260638621E709F5600249637 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		260638641E709F7D00249637 /* Sound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		2609D18B1E70B27F00F77306 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		2609D18C1E70B27F00F77306 /* pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
+		2609D18D1E70B27F00F77306 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		2609D18E1E70B27F00F77306 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		260FAADA1E721DD6009F31C0 /* active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = active.png; sourceTree = "<group>"; };
+		260FAADB1E721DD6009F31C0 /* active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "active@2x.png"; sourceTree = "<group>"; };
+		260FAADC1E721DD6009F31C0 /* inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inactive.png; sourceTree = "<group>"; };
+		260FAADD1E721DD6009F31C0 /* inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inactive@2x.png"; sourceTree = "<group>"; };
+		26102AF51E675DBC00F831F0 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
+		26102AF61E675DBC00F831F0 /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "help@2x.png"; sourceTree = "<group>"; };
+		26102AFD1E6762A400F831F0 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		26102AFE1E6762A400F831F0 /* info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info@2x.png"; sourceTree = "<group>"; };
+		26102B011E676F9C00F831F0 /* tips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tips.xml; sourceTree = "<group>"; };
+		26102B031E6789E500F831F0 /* HelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		26102B041E6789F000F831F0 /* InfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		26102B051E678A0000F831F0 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		26102B071E678A1000F831F0 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		26306E571E67577B005F2C3F /* SpeakFree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakFree.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		26306E5B1E67577B005F2C3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		26306E5D1E67577B005F2C3F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		26306E5E1E67577B005F2C3F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		26306E601E67577B005F2C3F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		26306E611E67577B005F2C3F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		26306E641E67577B005F2C3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		26306E661E67577C005F2C3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		26306E691E67577C005F2C3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		26306E6B1E67577C005F2C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26306E701E67577C005F2C3F /* SpeakFreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeakFreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26306E741E67577C005F2C3F /* SpeakFreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeakFreeTests.m; sourceTree = "<group>"; };
+		26306E761E67577C005F2C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26306E7B1E67577C005F2C3F /* SpeakFreeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeakFreeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26306E7F1E67577C005F2C3F /* SpeakFreeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeakFreeUITests.m; sourceTree = "<group>"; };
+		26306E811E67577C005F2C3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26412D381ECCD04500259C40 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		26412D391ECCD04500259C40 /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
+		26412D3A1ECCD04500259C40 /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
+		26412D3B1ECCD04500259C40 /* reload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload@2x.png"; sourceTree = "<group>"; };
+		26412D401ECCD47800259C40 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		26412D411ECCD47800259C40 /* trash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trash@2x.png"; sourceTree = "<group>"; };
+		26412D421ECCD47800259C40 /* upload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = upload.png; sourceTree = "<group>"; };
+		26412D431ECCD47800259C40 /* upload@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload@2x.png"; sourceTree = "<group>"; };
+		264CF13B1ECF75BF00A3BFD4 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		264CF13C1ECF75BF00A3BFD4 /* cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel@2x.png"; sourceTree = "<group>"; };
+		26D8590C1ECD10D000992384 /* SubmitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubmitViewController.h; sourceTree = "<group>"; };
+		26D8590D1ECD10E000992384 /* SubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26306E541E67577B005F2C3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26306E6D1E67577C005F2C3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26306E781E67577C005F2C3F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26102AF01E675D9600F831F0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				26102B011E676F9C00F831F0 /* tips.xml */,
+				26102AF51E675DBC00F831F0 /* help.png */,
+				26102AF61E675DBC00F831F0 /* help@2x.png */,
+				264CF13B1ECF75BF00A3BFD4 /* cancel.png */,
+				264CF13C1ECF75BF00A3BFD4 /* cancel@2x.png */,
+				26102AFD1E6762A400F831F0 /* info.png */,
+				26102AFE1E6762A400F831F0 /* info@2x.png */,
+				2609D18B1E70B27F00F77306 /* pause.png */,
+				2609D18C1E70B27F00F77306 /* pause@2x.png */,
+				2609D18D1E70B27F00F77306 /* play.png */,
+				2609D18E1E70B27F00F77306 /* play@2x.png */,
+				260FAADA1E721DD6009F31C0 /* active.png */,
+				260FAADB1E721DD6009F31C0 /* active@2x.png */,
+				260FAADC1E721DD6009F31C0 /* inactive.png */,
+				260FAADD1E721DD6009F31C0 /* inactive@2x.png */,
+				26412D381ECCD04500259C40 /* plus.png */,
+				26412D391ECCD04500259C40 /* plus@2x.png */,
+				26412D3A1ECCD04500259C40 /* reload.png */,
+				26412D3B1ECCD04500259C40 /* reload@2x.png */,
+				26412D401ECCD47800259C40 /* trash.png */,
+				26412D411ECCD47800259C40 /* trash@2x.png */,
+				26412D421ECCD47800259C40 /* upload.png */,
+				26412D431ECCD47800259C40 /* upload@2x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		26306E4E1E67577B005F2C3F = {
+			isa = PBXGroup;
+			children = (
+				26306E591E67577B005F2C3F /* SpeakFree */,
+				26306E731E67577C005F2C3F /* SpeakFreeTests */,
+				26306E7E1E67577C005F2C3F /* SpeakFreeUITests */,
+				26306E581E67577B005F2C3F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		26306E581E67577B005F2C3F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26306E571E67577B005F2C3F /* SpeakFree.app */,
+				26306E701E67577C005F2C3F /* SpeakFreeTests.xctest */,
+				26306E7B1E67577C005F2C3F /* SpeakFreeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26306E591E67577B005F2C3F /* SpeakFree */ = {
+			isa = PBXGroup;
+			children = (
+				26102AF01E675D9600F831F0 /* Assets */,
+				26306E5D1E67577B005F2C3F /* AppDelegate.h */,
+				26306E5E1E67577B005F2C3F /* AppDelegate.m */,
+				26306E601E67577B005F2C3F /* ViewController.h */,
+				26306E611E67577B005F2C3F /* ViewController.m */,
+				260638641E709F7D00249637 /* Sound.h */,
+				260638621E709F5600249637 /* Sound.m */,
+				26102B031E6789E500F831F0 /* HelpViewController.h */,
+				26102B051E678A0000F831F0 /* HelpViewController.m */,
+				26102B041E6789F000F831F0 /* InfoViewController.h */,
+				26102B071E678A1000F831F0 /* InfoViewController.m */,
+				26D8590C1ECD10D000992384 /* SubmitViewController.h */,
+				26D8590D1ECD10E000992384 /* SubmitViewController.m */,
+				26306E631E67577B005F2C3F /* Main.storyboard */,
+				26306E661E67577C005F2C3F /* Assets.xcassets */,
+				26306E681E67577C005F2C3F /* LaunchScreen.storyboard */,
+				26306E6B1E67577C005F2C3F /* Info.plist */,
+				26306E5A1E67577B005F2C3F /* Supporting Files */,
+			);
+			path = SpeakFree;
+			sourceTree = "<group>";
+		};
+		26306E5A1E67577B005F2C3F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				26306E5B1E67577B005F2C3F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26306E731E67577C005F2C3F /* SpeakFreeTests */ = {
+			isa = PBXGroup;
+			children = (
+				26306E741E67577C005F2C3F /* SpeakFreeTests.m */,
+				26306E761E67577C005F2C3F /* Info.plist */,
+			);
+			path = SpeakFreeTests;
+			sourceTree = "<group>";
+		};
+		26306E7E1E67577C005F2C3F /* SpeakFreeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				26306E7F1E67577C005F2C3F /* SpeakFreeUITests.m */,
+				26306E811E67577C005F2C3F /* Info.plist */,
+			);
+			path = SpeakFreeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26306E561E67577B005F2C3F /* SpeakFree */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26306E841E67577C005F2C3F /* Build configuration list for PBXNativeTarget "SpeakFree" */;
+			buildPhases = (
+				26306E531E67577B005F2C3F /* Sources */,
+				26306E541E67577B005F2C3F /* Frameworks */,
+				26306E551E67577B005F2C3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpeakFree;
+			productName = SpeakFree;
+			productReference = 26306E571E67577B005F2C3F /* SpeakFree.app */;
+			productType = "com.apple.product-type.application";
+		};
+		26306E6F1E67577C005F2C3F /* SpeakFreeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26306E871E67577C005F2C3F /* Build configuration list for PBXNativeTarget "SpeakFreeTests" */;
+			buildPhases = (
+				26306E6C1E67577C005F2C3F /* Sources */,
+				26306E6D1E67577C005F2C3F /* Frameworks */,
+				26306E6E1E67577C005F2C3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26306E721E67577C005F2C3F /* PBXTargetDependency */,
+			);
+			name = SpeakFreeTests;
+			productName = SpeakFreeTests;
+			productReference = 26306E701E67577C005F2C3F /* SpeakFreeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		26306E7A1E67577C005F2C3F /* SpeakFreeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26306E8A1E67577C005F2C3F /* Build configuration list for PBXNativeTarget "SpeakFreeUITests" */;
+			buildPhases = (
+				26306E771E67577C005F2C3F /* Sources */,
+				26306E781E67577C005F2C3F /* Frameworks */,
+				26306E791E67577C005F2C3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26306E7D1E67577C005F2C3F /* PBXTargetDependency */,
+			);
+			name = SpeakFreeUITests;
+			productName = SpeakFreeUITests;
+			productReference = 26306E7B1E67577C005F2C3F /* SpeakFreeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		26306E4F1E67577B005F2C3F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Daylighting Society";
+				TargetAttributes = {
+					26306E561E67577B005F2C3F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = AG9N4GCB27;
+						ProvisioningStyle = Automatic;
+					};
+					26306E6F1E67577C005F2C3F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = AG9N4GCB27;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 26306E561E67577B005F2C3F;
+					};
+					26306E7A1E67577C005F2C3F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = AG9N4GCB27;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 26306E561E67577B005F2C3F;
+					};
+				};
+			};
+			buildConfigurationList = 26306E521E67577B005F2C3F /* Build configuration list for PBXProject "SpeakFree" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 26306E4E1E67577B005F2C3F;
+			productRefGroup = 26306E581E67577B005F2C3F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26306E561E67577B005F2C3F /* SpeakFree */,
+				26306E6F1E67577C005F2C3F /* SpeakFreeTests */,
+				26306E7A1E67577C005F2C3F /* SpeakFreeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26306E551E67577B005F2C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26306E6A1E67577C005F2C3F /* LaunchScreen.storyboard in Resources */,
+				26412D451ECCD47800259C40 /* trash@2x.png in Resources */,
+				2609D18F1E70B27F00F77306 /* pause.png in Resources */,
+				26102AFF1E6762A400F831F0 /* info.png in Resources */,
+				260FAAE11E721DD6009F31C0 /* inactive@2x.png in Resources */,
+				26102B001E6762A400F831F0 /* info@2x.png in Resources */,
+				26412D3C1ECCD04500259C40 /* plus.png in Resources */,
+				26102B021E676F9C00F831F0 /* tips.xml in Resources */,
+				26412D3E1ECCD04500259C40 /* reload.png in Resources */,
+				26306E671E67577C005F2C3F /* Assets.xcassets in Resources */,
+				264CF13E1ECF75BF00A3BFD4 /* cancel@2x.png in Resources */,
+				26412D471ECCD47800259C40 /* upload@2x.png in Resources */,
+				26102AF71E675DBC00F831F0 /* help.png in Resources */,
+				264CF13D1ECF75BF00A3BFD4 /* cancel.png in Resources */,
+				260FAADF1E721DD6009F31C0 /* active@2x.png in Resources */,
+				26412D441ECCD47800259C40 /* trash.png in Resources */,
+				26412D461ECCD47800259C40 /* upload.png in Resources */,
+				26102AF81E675DBC00F831F0 /* help@2x.png in Resources */,
+				2609D1911E70B27F00F77306 /* play.png in Resources */,
+				26306E651E67577B005F2C3F /* Main.storyboard in Resources */,
+				26412D3F1ECCD04500259C40 /* reload@2x.png in Resources */,
+				260FAADE1E721DD6009F31C0 /* active.png in Resources */,
+				260FAAE01E721DD6009F31C0 /* inactive.png in Resources */,
+				2609D1921E70B27F00F77306 /* play@2x.png in Resources */,
+				26412D3D1ECCD04500259C40 /* plus@2x.png in Resources */,
+				2609D1901E70B27F00F77306 /* pause@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26306E6E1E67577C005F2C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26306E791E67577C005F2C3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26306E531E67577B005F2C3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26306E621E67577B005F2C3F /* ViewController.m in Sources */,
+				26306E5F1E67577B005F2C3F /* AppDelegate.m in Sources */,
+				26D8590E1ECD10E000992384 /* SubmitViewController.m in Sources */,
+				26306E5C1E67577B005F2C3F /* main.m in Sources */,
+				260638631E709F5600249637 /* Sound.m in Sources */,
+				26102B081E678A1000F831F0 /* InfoViewController.m in Sources */,
+				26102B061E678A0000F831F0 /* HelpViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26306E6C1E67577C005F2C3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26306E751E67577C005F2C3F /* SpeakFreeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26306E771E67577C005F2C3F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26306E801E67577C005F2C3F /* SpeakFreeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26306E721E67577C005F2C3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26306E561E67577B005F2C3F /* SpeakFree */;
+			targetProxy = 26306E711E67577C005F2C3F /* PBXContainerItemProxy */;
+		};
+		26306E7D1E67577C005F2C3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26306E561E67577B005F2C3F /* SpeakFree */;
+			targetProxy = 26306E7C1E67577C005F2C3F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		26306E631E67577B005F2C3F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26306E641E67577B005F2C3F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		26306E681E67577C005F2C3F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26306E691E67577C005F2C3F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		26306E821E67577C005F2C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		26306E831E67577C005F2C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26306E851E67577C005F2C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AG9N4GCB27;
+				INFOPLIST_FILE = SpeakFree/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.daylightingsociety.speakfree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		26306E861E67577C005F2C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AG9N4GCB27;
+				INFOPLIST_FILE = SpeakFree/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.daylightingsociety.speakfree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		26306E881E67577C005F2C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = AG9N4GCB27;
+				INFOPLIST_FILE = SpeakFreeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.daylightingsociety.SpeakFreeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeakFree.app/SpeakFree";
+			};
+			name = Debug;
+		};
+		26306E891E67577C005F2C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = AG9N4GCB27;
+				INFOPLIST_FILE = SpeakFreeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.daylightingsociety.SpeakFreeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeakFree.app/SpeakFree";
+			};
+			name = Release;
+		};
+		26306E8B1E67577C005F2C3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = AG9N4GCB27;
+				INFOPLIST_FILE = SpeakFreeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.daylightingsociety.SpeakFreeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SpeakFree;
+			};
+			name = Debug;
+		};
+		26306E8C1E67577C005F2C3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = AG9N4GCB27;
+				INFOPLIST_FILE = SpeakFreeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.daylightingsociety.SpeakFreeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SpeakFree;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26306E521E67577B005F2C3F /* Build configuration list for PBXProject "SpeakFree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26306E821E67577C005F2C3F /* Debug */,
+				26306E831E67577C005F2C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26306E841E67577C005F2C3F /* Build configuration list for PBXNativeTarget "SpeakFree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26306E851E67577C005F2C3F /* Debug */,
+				26306E861E67577C005F2C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26306E871E67577C005F2C3F /* Build configuration list for PBXNativeTarget "SpeakFreeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26306E881E67577C005F2C3F /* Debug */,
+				26306E891E67577C005F2C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26306E8A1E67577C005F2C3F /* Build configuration list for PBXNativeTarget "SpeakFreeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26306E8B1E67577C005F2C3F /* Debug */,
+				26306E8C1E67577C005F2C3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26306E4F1E67577B005F2C3F /* Project object */;
+}

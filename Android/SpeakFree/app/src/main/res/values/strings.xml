@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SpeakFree</string>'
+    <string name="hello_world">Hello World!</string>
+    <string name="start">Start!</string>
+    <string name="title_activity_info">Info</string>
+    <string name="title_activity_help">Help</string>
+
+    <string name="help">
+        We are surrounded by microphones in our phones, tablets, laptops, televisions, and other "Internet of Things" devices. These devices can listen to and transmit our conversations at any time.\n\n
+        Identifying each nearby microphone and getting to a safe distance just to have a private conversation is not always possible. Instead, SpeakFree produces loud noises in the range of human conversation to drown out your voice and make nearby microphones less effective.\n\n
+        To use the app, simply press the play button and turn up the volume as loud as is comfortable. The static must be much louder than your conversation to drown out your voice. Speak quietly.\n\n
+        This app is not guaranteed to make your conversation private; too low a volume, too close a microphone, or too skilled a sound engineer can still pick out your voice.\n\n
+        Further tips for keeping your conversation private are provided on the main screen.
+    </string>
+
+    <string name="info">SpeakFree is a Daylighting Society project. This app produces loud noise, and may damage hearing or speakers if played at too high a volume. The user assumes all responsibility for this app regarding the wellbeing of people and equipment nearby. \n\n
+    All button icons from Open Iconic under the MIT license. \n\n
+    Find more information at: \n
+    https://speakfree.daylightingsociety.org \n\n
+    Feedback? Write to: \n
+    speakfree@daylightingsociety.org</string>
+
+    <string name="play_button_desc">Play Button</string>
+    <string name="info_button_desc">Info Button</string>
+    <string name="help_button_desc">Help Button</string>
+    <string name="return_button_desc">Return Button</string>
+
+    <string name="status_image_desc">Status image to indicate whether noise is active</string>
+    <string name="stay_safe">Stay safe</string>
+    <string name="main_warning">Warning: Loud noise - Set your volume low before starting.</string>
+</resources>

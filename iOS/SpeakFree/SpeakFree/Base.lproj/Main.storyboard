@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Main View Controller" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6cB-O1-PIw" userLabel="ImageBackground">
+                                <rect key="frame" x="0.0" y="28" width="375" height="170"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="inactive.png" translatesAutoresizingMaskIntoConstraints="NO" id="9it-hQ-3bi" userLabel="StatusImage">
+                                        <rect key="frame" x="67" y="17" width="240" height="128"/>
+                                    </imageView>
+                                </subviews>
+                                <accessibility key="accessibilityConfiguration" label="ImageBackground"/>
+                                <constraints>
+                                    <constraint firstItem="9it-hQ-3bi" firstAttribute="centerX" secondItem="6cB-O1-PIw" secondAttribute="centerX" id="F0a-D6-3Bm"/>
+                                    <constraint firstItem="9it-hQ-3bi" firstAttribute="centerY" secondItem="6cB-O1-PIw" secondAttribute="centerY" id="NFB-Vt-BA5"/>
+                                    <constraint firstAttribute="height" secondItem="9it-hQ-3bi" secondAttribute="height" id="ZQv-1e-OdM"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zep-wL-ZLM" userLabel="TipBackgroundColor">
+                                <rect key="frame" x="0.0" y="218" width="375" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tips for Speaking Free" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qj5-Ii-xav">
+                                        <rect key="frame" x="74" y="8" width="227" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aJd-EH-2Cq" userLabel="Tips">
+                                        <rect key="frame" x="8" y="28" width="359" height="325"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Warning: Loud noise - Set your volume low before starting" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pt-ql-y7P">
+                                        <rect key="frame" x="8" y="354" width="359" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0pt-ql-y7P" secondAttribute="trailing" constant="8" id="1Y9-Gq-K2p"/>
+                                    <constraint firstItem="qj5-Ii-xav" firstAttribute="centerX" secondItem="Zep-wL-ZLM" secondAttribute="centerX" id="5tr-ti-spt"/>
+                                    <constraint firstItem="0pt-ql-y7P" firstAttribute="leading" secondItem="Zep-wL-ZLM" secondAttribute="leading" constant="8" id="Z0o-NN-MnQ"/>
+                                    <constraint firstItem="0pt-ql-y7P" firstAttribute="top" secondItem="aJd-EH-2Cq" secondAttribute="bottom" constant="1" id="a7K-jY-YaI"/>
+                                    <constraint firstItem="qj5-Ii-xav" firstAttribute="top" secondItem="Zep-wL-ZLM" secondAttribute="top" constant="8" id="cfW-19-MdU"/>
+                                    <constraint firstItem="aJd-EH-2Cq" firstAttribute="top" secondItem="qj5-Ii-xav" secondAttribute="bottom" constant="8" id="gaP-gb-PpN"/>
+                                </constraints>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMZ-xf-cwz">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem image="plus.png" id="SvN-Rw-SDz" userLabel="add_tip">
+                                        <connections>
+                                            <action selector="addTipPressed:" destination="BYZ-38-t0r" id="bTV-i2-ayu"/>
+                                            <segue destination="RKQ-Cq-4mU" kind="popoverPresentation" popoverAnchorBarButtonItem="SvN-Rw-SDz" id="hw4-qR-uUg">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="F0c-3L-iF5"/>
+                                    <barButtonItem image="reload.png" id="UJC-zT-Xjo" userLabel="reload_tips">
+                                        <connections>
+                                            <action selector="reloadTipsPressed:" destination="BYZ-38-t0r" id="W6g-gT-2HG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="U8Q-uY-GaQ"/>
+                                    <barButtonItem image="play.png" id="TRz-0l-rlc" userLabel="play">
+                                        <connections>
+                                            <action selector="soundPressed:" destination="BYZ-38-t0r" id="0g6-ld-e1p"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="N1i-it-jpb"/>
+                                    <barButtonItem image="info.png" id="zvU-1d-HkA" userLabel="info">
+                                        <connections>
+                                            <segue destination="WWT-KQ-cl5" kind="popoverPresentation" popoverAnchorBarButtonItem="zvU-1d-HkA" id="bCl-XW-7Ug">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ZwS-w5-d9q"/>
+                                    <barButtonItem image="help.png" id="9UR-Oa-eSE" userLabel="help">
+                                        <connections>
+                                            <segue destination="4TL-qz-BpO" kind="popoverPresentation" popoverAnchorBarButtonItem="9UR-Oa-eSE" id="pGr-nu-YLF">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="6cB-O1-PIw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1Km-M7-LU6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eMZ-xf-cwz" secondAttribute="bottom" id="5jn-Z5-h9z"/>
+                            <constraint firstItem="eMZ-xf-cwz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CHZ-qQ-yiT"/>
+                            <constraint firstItem="eMZ-xf-cwz" firstAttribute="top" secondItem="0pt-ql-y7P" secondAttribute="bottom" constant="8" id="Fv3-RJ-RKV"/>
+                            <constraint firstItem="6cB-O1-PIw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Sfq-6Q-YSy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zep-wL-ZLM" secondAttribute="bottom" id="Xtq-k5-4HT"/>
+                            <constraint firstItem="Zep-wL-ZLM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Y12-lY-ElO"/>
+                            <constraint firstItem="eMZ-xf-cwz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bwJ-Oc-Mre"/>
+                            <constraint firstItem="6cB-O1-PIw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="eup-GV-LKs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aJd-EH-2Cq" secondAttribute="trailing" constant="-8" id="oLn-Gt-uvT"/>
+                            <constraint firstItem="Zep-wL-ZLM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rAm-8c-Kpy"/>
+                            <constraint firstItem="aJd-EH-2Cq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="tb5-ZL-3uP"/>
+                            <constraint firstItem="Zep-wL-ZLM" firstAttribute="top" secondItem="6cB-O1-PIw" secondAttribute="bottom" constant="8" id="xoS-bQ-sxu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="statusImage" destination="9it-hQ-3bi" id="uJw-gF-hao"/>
+                        <outlet property="tipBox" destination="aJd-EH-2Cq" id="vo6-Zb-n4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+        <!--Submit View Controller-->
+        <scene sceneID="yNA-pO-HBK">
+            <objects>
+                <viewController title="Submit View Controller" id="RKQ-Cq-4mU" customClass="SubmitViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Fe-Kz-lxo"/>
+                        <viewControllerLayoutGuide type="bottom" id="HRV-aq-naG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EUJ-aQ-FV6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Har-Qj-WPd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem title="Anonymously Submit a Tip" id="E5e-QC-4YG"/>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aD-tw-nKG">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem image="trash.png" id="zaM-df-1Ar">
+                                        <connections>
+                                            <action selector="trash:" destination="RKQ-Cq-4mU" id="3xS-si-Cy4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="VQb-xo-9AO"/>
+                                    <barButtonItem image="upload.png" id="E3F-gv-ffy">
+                                        <connections>
+                                            <action selector="submit:" destination="RKQ-Cq-4mU" id="Y0h-eU-yAG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" ambiguous="YES" editable="NO" text="Have an anti-surveillance suggestion? Send it to us, and after review we can add it to the tips appearing on the main screen." textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kx7-Dh-zfZ" userLabel="instructions">
+                                <rect key="frame" x="16" y="80" width="343" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="MyE-GH-TN5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your tip here..." textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Ku-lD-75h">
+                                <rect key="frame" x="16" y="158" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Har-Qj-WPd" firstAttribute="top" secondItem="2Fe-Kz-lxo" secondAttribute="bottom" constant="8" id="4U3-rW-GBt"/>
+                            <constraint firstItem="5aD-tw-nKG" firstAttribute="width" secondItem="EUJ-aQ-FV6" secondAttribute="width" id="AeX-sE-Y1y"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9Ku-lD-75h" secondAttribute="leading" id="CIf-qW-I5E"/>
+                            <constraint firstItem="Har-Qj-WPd" firstAttribute="width" secondItem="EUJ-aQ-FV6" secondAttribute="width" id="FhU-1h-0Lb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9Ku-lD-75h" secondAttribute="trailing" id="OTT-ie-Zby"/>
+                            <constraint firstItem="Kx7-Dh-zfZ" firstAttribute="top" secondItem="Har-Qj-WPd" secondAttribute="bottom" constant="8" id="iDe-2U-xl4"/>
+                            <constraint firstItem="HRV-aq-naG" firstAttribute="top" secondItem="5aD-tw-nKG" secondAttribute="bottom" id="lKa-Q7-q1S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kx7-Dh-zfZ" secondAttribute="trailing" id="sO0-52-Jkn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Kx7-Dh-zfZ" secondAttribute="leading" id="t1C-Hr-e5O"/>
+                            <constraint firstItem="9Ku-lD-75h" firstAttribute="top" secondItem="Kx7-Dh-zfZ" secondAttribute="bottom" constant="8" id="woS-I0-QEb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tipText" destination="9Ku-lD-75h" id="qET-O1-0kz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4if-dy-BRU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-242.40000000000001" y="886.50674662668678"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="Nbb-BG-Bc9">
+            <objects>
+                <viewController id="4TL-qz-BpO" userLabel="Help View Controller" customClass="HelpViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NdN-6I-Lga"/>
+                        <viewControllerLayoutGuide type="bottom" id="fCs-Va-Ey9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3vC-fg-2op">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fyg-Wc-vKd">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="SpeakFree Help" id="sAl-e1-MTE"/>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SjD-Ko-FNJ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wAr-zj-Cgm"/>
+                                    <barButtonItem image="cancel.png" id="vsd-Ww-DmT">
+                                        <connections>
+                                            <action selector="handleBack:" destination="4TL-qz-BpO" id="KfY-2m-pTW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6Zv-vk-2YW"/>
+                                </items>
+                            </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hOL-DB-Ean">
+                                <rect key="frame" x="16" y="76" width="343" height="533"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">We are surrounded by microphones in our phones, tablets, laptops, televisions, and other "Internet of Things" devices. These devices can listen to and transmit our conversations at any time.
+
+Identifying each nearby microphone and getting to a safe distance just to have a private conversation is not always possible. Instead, SpeakFree produces loud noises in the range of human conversation to drown out your voice and make nearby microphones less effective.
+
+To use the app, simply press the play button and turn up the volume as loud as is comfortable. The static must be much louder than your conversation to drown out your voice. Speak quietly.
+
+This app is not guaranteed to make your conversation private; too low a volume, too close a microphone, or too skilled a sound engineer can still pick out your voice.
+
+Further tips for keeping your conversation private are provided on the main screen. Tap to read the next tip.</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hOL-DB-Ean" firstAttribute="centerX" secondItem="3vC-fg-2op" secondAttribute="centerX" id="AAK-8R-XLX"/>
+                            <constraint firstItem="hOL-DB-Ean" firstAttribute="width" secondItem="3vC-fg-2op" secondAttribute="width" id="Cvn-wL-Dgk"/>
+                            <constraint firstItem="Fyg-Wc-vKd" firstAttribute="top" secondItem="NdN-6I-Lga" secondAttribute="bottom" id="D7c-Hb-CxC"/>
+                            <constraint firstItem="Fyg-Wc-vKd" firstAttribute="width" secondItem="3vC-fg-2op" secondAttribute="width" id="Nnc-AG-9xH"/>
+                            <constraint firstItem="SjD-Ko-FNJ" firstAttribute="width" secondItem="3vC-fg-2op" secondAttribute="width" id="Txe-FZ-Ki3"/>
+                            <constraint firstItem="fCs-Va-Ey9" firstAttribute="top" secondItem="SjD-Ko-FNJ" secondAttribute="bottom" id="px5-We-NFe"/>
+                            <constraint firstItem="SjD-Ko-FNJ" firstAttribute="top" secondItem="hOL-DB-Ean" secondAttribute="bottom" id="v12-iH-zbF"/>
+                            <constraint firstItem="SjD-Ko-FNJ" firstAttribute="centerX" secondItem="3vC-fg-2op" secondAttribute="centerX" id="wEy-UT-EtH"/>
+                            <constraint firstItem="Fyg-Wc-vKd" firstAttribute="centerX" secondItem="3vC-fg-2op" secondAttribute="centerX" id="wzR-2C-qHZ"/>
+                            <constraint firstItem="hOL-DB-Ean" firstAttribute="top" secondItem="Fyg-Wc-vKd" secondAttribute="bottom" constant="10" id="x6m-KK-CMb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutText" destination="hOL-DB-Ean" id="nl4-Kt-0cc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EKZ-ZQ-4b2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="122.78860569715144"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="8bk-Oz-mkC">
+            <objects>
+                <viewController id="WWT-KQ-cl5" userLabel="Info View Controller" customClass="InfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KUA-kf-dmZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="5HC-5x-b3g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J9q-Gn-Wyj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dbF-pg-vuf">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bu6-uO-jlO"/>
+                                    <barButtonItem image="cancel.png" id="leb-hn-JTW">
+                                        <connections>
+                                            <action selector="handleBack:" destination="WWT-KQ-cl5" id="M3z-mw-dgG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="omU-ds-SKP"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Sn-NC-4WO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="About SpeakFree" id="K40-Bf-s06"/>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ojP-Rx-3pq">
+                                <rect key="frame" x="16" y="67" width="343" height="553"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">SpeakFree is a Daylighting Society project. This app produces loud noise, and may damage hearing or speakers if played at too high a volume. The user assumes all responsibility for this app regarding the wellbeing of people and equipment nearby.
+
+All button icons from Open Iconic under the MIT license.
+
+Find more information at speakfree.daylightingsociety.org
+
+Feedback? Write to: speakfree@daylightingsociety.org
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5HC-5x-b3g" firstAttribute="top" secondItem="dbF-pg-vuf" secondAttribute="bottom" id="0Yd-Ax-H8C"/>
+                            <constraint firstItem="dbF-pg-vuf" firstAttribute="top" secondItem="ojP-Rx-3pq" secondAttribute="bottom" id="2dp-br-wxP"/>
+                            <constraint firstItem="ojP-Rx-3pq" firstAttribute="width" secondItem="J9q-Gn-Wyj" secondAttribute="width" id="419-Og-Deg"/>
+                            <constraint firstItem="dbF-pg-vuf" firstAttribute="width" secondItem="J9q-Gn-Wyj" secondAttribute="width" id="4xq-ag-00o"/>
+                            <constraint firstItem="3Sn-NC-4WO" firstAttribute="width" secondItem="J9q-Gn-Wyj" secondAttribute="width" id="BaR-Lk-Lnc"/>
+                            <constraint firstItem="3Sn-NC-4WO" firstAttribute="centerX" secondItem="J9q-Gn-Wyj" secondAttribute="centerX" id="HYz-6m-qxq"/>
+                            <constraint firstItem="ojP-Rx-3pq" firstAttribute="top" secondItem="3Sn-NC-4WO" secondAttribute="bottom" constant="10" id="Kz4-V1-0Zh"/>
+                            <constraint firstItem="ojP-Rx-3pq" firstAttribute="centerX" secondItem="J9q-Gn-Wyj" secondAttribute="centerX" id="hHM-wQ-aBK"/>
+                            <constraint firstItem="dbF-pg-vuf" firstAttribute="centerX" secondItem="J9q-Gn-Wyj" secondAttribute="centerX" id="ivb-Bm-oR9"/>
+                            <constraint firstItem="3Sn-NC-4WO" firstAttribute="top" secondItem="KUA-kf-dmZ" secondAttribute="bottom" id="z5r-hn-AO2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutText" destination="ojP-Rx-3pq" id="wW8-18-x98"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xyb-Kw-vZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962" y="887"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel.png" width="32" height="32"/>
+        <image name="help.png" width="16" height="16"/>
+        <image name="inactive.png" width="200" height="200"/>
+        <image name="info.png" width="16" height="16"/>
+        <image name="play.png" width="32" height="32"/>
+        <image name="plus.png" width="16" height="16"/>
+        <image name="reload.png" width="16" height="16"/>
+        <image name="trash.png" width="32" height="32"/>
+        <image name="upload.png" width="32" height="32"/>
+    </resources>
+</document>

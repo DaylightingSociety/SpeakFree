@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="16dp"
+    android:theme="@android:style/Theme.NoTitleBar"
+    tools:context="org.daylightingsociety.speakfree.Info">
+
+    <include layout="@layout/content_info"
+        android:id="@+id/include_content" />
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        style="@android:style/ButtonBar"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <Space
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <Space
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <Space
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <Space
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+        <ImageButton
+            android:contentDescription="@string/return_button_desc"
+            android:id="@+id/imageButton_info_return"
+            android:layout_weight="1"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:background="@drawable/arrow_right"
+            android:scaleType="fitCenter" />
+
+        <Space
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
