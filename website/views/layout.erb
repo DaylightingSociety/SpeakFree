@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SpeakFree</title>
+<link href="/styles/style.css" rel="stylesheet" type="text/css">
+<link href="/styles/fonts.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="container">
+	<div class="header">
+		<div class="header_wrapper">
+			<a href="/">Status</a> -
+			<a href="/about">About</a> - 
+			<div id="main_head">SpeakFree</div> - 
+			<a href="/propaganda">Media</a> -
+			<a href="/download">Download</a>
+		</div>
+	</div>
+	<hr>
+
+	<div class="stage">
+		<div class="stage-data">
+			<%= yield %>
+		</div>
+	</div>
+	<div class="footer">&#169; 2017 <a href="https://daylightingsociety.org">Daylighting Society</a><br><img src="/images/daylighting.png" width=100px></div>
+</div>
+</body>
+</html>
