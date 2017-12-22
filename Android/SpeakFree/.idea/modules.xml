@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpeakFree.iml" filepath="$PROJECT_DIR$/SpeakFree.iml" />
+      <module fileurl="file://Z:\StudioProjects\SpeakFree\Android\SpeakFree\SpeakFree.iml" filepath="Z:\StudioProjects\SpeakFree\Android\SpeakFree\SpeakFree.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://Z:\StudioProjects\SpeakFree\Android\SpeakFree\app\app.iml" filepath="Z:\StudioProjects\SpeakFree\Android\SpeakFree\app\app.iml" />
     </modules>
   </component>
 </project>
