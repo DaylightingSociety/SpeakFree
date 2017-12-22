@@ -43,7 +43,7 @@ end
 
 post '/submitTip' do
 	tip = params['tip']
-	if( tip.nil? )
+	if( tip.nil? || tip.strip.length == 0 )
 		halt 400, "No tip submitted!"
 	elsif( tip.bytesize > Configuration::MaxTipLength )
 		halt 400, "Tip too large (max #{Configuration::MaxTipLength} bytes)!"
@@ -52,7 +52,7 @@ post '/submitTip' do
 	end
 	filename = Digest::SHA1.hexdigest(tip) + ".txt"
 	f = File.open("#{Configuration::TipDir}/#{filename}", "w")
-	f.write(tip + "\n")
+	f.write(tip.strip + "\n")
 	f.close
 	return "Tip saved. Thank you for your submission.\n"
 end
