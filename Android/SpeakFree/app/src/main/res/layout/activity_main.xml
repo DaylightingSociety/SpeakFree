@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,65 +20,95 @@
     <include layout="@layout/content_main"
         android:id="@+id/include_main"/>
 
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/center"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"
+        />
+
     <LinearLayout
         android:id="@+id/footer"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         style="@android:style/ButtonBar"
-        android:background="@color/colorAccent"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageButton
+        android:contentDescription="@string/new_tip_desc"
+        android:id="@+id/imageButton_newTip"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/plus"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageButton
+        android:contentDescription="@string/play_button_desc"
+        android:id="@+id/imageButton_playButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/play"
+        app:layout_constraintTop_toTopOf="@id/footer"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toEndOf="@id/center"
+        app:layout_constraintEnd_toStartOf="@id/center"/>
 
 
-        <Space
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+    <ImageButton
+        android:contentDescription="@string/refresh_desc"
+        android:id="@+id/imageButton_refresh"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/reload"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintStart_toEndOf="@id/imageButton_newTip"
+        app:layout_constraintEnd_toStartOf="@id/imageButton_playButton"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"/>
 
-        <ImageButton
-            android:contentDescription="@string/info_button_desc"
-            android:layout_weight="1"
-            android:id="@+id/imageButton_info"
-            android:layout_width="20dp"
-            android:layout_height="35dp"
-            android:scaleType="fitCenter"
-            android:background="@drawable/info"/>
-
-        <Space
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-
-        <ImageButton
-            android:contentDescription="@string/play_button_desc"
-            android:id="@+id/imageButton_playButton"
-            android:layout_weight="1"
-            android:layout_width="20dp"
-            android:layout_height="35dp"
-            android:scaleType="fitCenter"
-            android:background="@drawable/play"/>
-
-        <Space
-            android:layout_weight="5"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
-
-        <ImageButton
-            android:background="@drawable/help"
-            android:id="@+id/imageButton_help"
-            android:layout_weight="1"
-            android:layout_width="20dp"
-            android:layout_height="35dp"
-            android:contentDescription="@string/help_button_desc"
-            android:scaleType="fitCenter" />
+    <ImageButton
+        android:contentDescription="@string/help_button_desc"
+        android:background="@drawable/help"
+        android:id="@+id/imageButton_help"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"/>
 
 
-        <Space
-            android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
 
-    </LinearLayout>
+    <ImageButton
+        android:contentDescription="@string/info_button_desc"
+        android:id="@+id/imageButton_info"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="fitCenter"
+        android:background="@drawable/info"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintEnd_toStartOf="@id/imageButton_help"
+        app:layout_constraintStart_toEndOf="@id/imageButton_playButton"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"/>
+
+
 
 </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

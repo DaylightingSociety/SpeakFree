@@ -24,8 +24,12 @@
     <string name="info_button_desc">Info Button</string>
     <string name="help_button_desc">Help Button</string>
     <string name="return_button_desc">Return Button</string>
-
+    <string name="new_tip_desc">New Tip Button</string>
+    <string name="refresh_desc">Refresh Button</string>
+    <string name="permissions_not_granted">Permissions were not granted.</string>
+    <string name="permission_internet_rationale">Internet access is require to download or submit new tips</string>
     <string name="status_image_desc">Status image to indicate whether noise is active</string>
     <string name="stay_safe">Stay safe</string>
+    <string name="ok">@android:string/ok</string>
     <string name="main_warning">Warning: Loud noise - Set your volume low before starting.</string>
 </resources>
