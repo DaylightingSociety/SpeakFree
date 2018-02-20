@@ -1,6 +1,7 @@
 package org.daylightingsociety.speakfree;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -40,6 +41,8 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,6 +56,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -70,59 +74,11 @@ public class MainActivity extends AppCompatActivity {
     private View mLayout;
     private String m_Text = "";
 
-    private boolean isplaying;
+    private boolean isplaying = false;
     private final Random rfrequency = new Random();
     private final Random bonus = new Random();
-    private final Thread t = new Thread() {
-        public void run() {
-            int sr = 44100;
-            setPriority(Thread.MAX_PRIORITY);
-            int buffsize = AudioTrack.getMinBufferSize(sr,
-                    AudioFormat.CHANNEL_OUT_MONO,
-                    AudioFormat.ENCODING_PCM_16BIT);
-            AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, sr,
-                    AudioFormat.CHANNEL_OUT_MONO,
-                    AudioFormat.ENCODING_PCM_16BIT,
-                    buffsize, AudioTrack.MODE_STREAM);
-            short samples[] = new short[buffsize];
-            int amp = 10000;
-            double twopi = 8.0*Math.atan(1.0);
-            double fr;
-            double ph = 0.0;
-            audioTrack.play();
-
-            // randomization loop
-            while(isplaying)
-            {
-                // fill the buffer
-                for(int i = 0; i < buffsize; i++)
-                {
-                    samples[i] = (short) (amp*Math.sin(ph));
-                    double tempph = 0.0;
-                    for(int j = 0; j < 10; j++)
-                    {
-                        fr = (double)((rfrequency.nextInt(3400-300)+1)+300);
-                        short prev = (short) (amp*Math.sin(tempph));
-                        short curr = (short) (amp*Math.sin(ph + twopi*fr/sr));
-                        if(Math.abs(curr) > Math.abs(prev) )
-                        {
-                            tempph = ph + twopi*fr/sr;
-                        }
-                    }
-                    //ph += twopi*fr/sr;
-                    ph = tempph;
-                }
-                // randomly swap a wave in the buffer with a new one
-                int selection = bonus.nextInt(samples.length);
-                fr = (double)((rfrequency.nextInt(3400-300)+1)+300);
-                samples[selection] = (short) (amp*Math.sin(ph+twopi*fr/sr));
-                audioTrack.write(samples, 0, buffsize);
-            }
-            audioTrack.stop();
-            audioTrack.release();
-        }
-    };
-    private String[] tips;
+    private Thread t = null;
+    private ArrayList<String> tips = new ArrayList<String>();
     private int tips_index = 0;
     static final int MIN_DISTANCE = 150;
 
@@ -140,9 +96,40 @@ public class MainActivity extends AppCompatActivity {
 
         Resources res = getResources();
 
-        tips = res.getStringArray(R.array.tips);
+        // Either get tips from file, or use the ones in resources.
+        try {
 
-        tips_index = rgenerator.nextInt(tips.length);
+            File filedir = this.getFilesDir();
+            File f = new File(filedir, "tips.txt");
+            if(!f.exists())
+            {
+                throw new FileNotFoundException();
+            }
+
+            String str = null;
+            FileInputStream raw = this.openFileInput("tips.txt");
+            if (raw != null) {
+                try {
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(raw));
+                    while ((str = reader.readLine()) != null) {
+                        tips.add(str);
+                    }
+                } catch (IOException e) {
+                    try {
+                        raw.close();
+                    } catch (Throwable ignore) {
+                    }
+                }
+            }
+            else {
+                throw new FileNotFoundException();
+            }
+        }
+        catch (FileNotFoundException e) {
+            tips = new ArrayList<String>(Arrays.asList(res.getStringArray(R.array.tips)));
+        }
+
+        tips_index = rgenerator.nextInt(tips.size());
 
         final Animation in = new AlphaAnimation(0.0f,1.0f);
         in.setDuration(1000);
@@ -160,14 +147,14 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void run(){
                             tips_index += 1;
-                            tips_index %= tips.length;
+                            tips_index %= tips.size();
                             final TextView tv = (TextView) findViewById(R.id.main_tip);
                             out.setAnimationListener(new Animation.AnimationListener()
                             {
                                 // when fade out ends, change the tip and fade in
                                 @Override
                                 public void onAnimationEnd(Animation animation) {
-                                    tv.setText(tips[tips_index]);
+                                    tv.setText(tips.get(tips_index));
                                     tv.startAnimation(in);
                                 }
 
@@ -202,6 +189,11 @@ public class MainActivity extends AppCompatActivity {
                         playButton.setBackgroundResource(R.drawable.play);
                         ImageView statusImage =(ImageView) findViewById(R.id.status_image);
                         statusImage.setImageResource(R.drawable.inactive);
+                        if(t != null) {
+                            t.interrupt();
+                        }
+                        t = null;
+                        System.gc();
                     }
                     else
                     {
@@ -210,6 +202,72 @@ public class MainActivity extends AppCompatActivity {
                         playButton.setBackgroundResource(R.drawable.pause);
                         ImageView statusImage =(ImageView) findViewById(R.id.status_image);
                         statusImage.setImageResource(R.drawable.active);
+
+                        t = new Thread() {
+                            public void run() {
+                                int sr = 44100;
+                                setPriority(Thread.MAX_PRIORITY);
+                                int buffsize = AudioTrack.getMinBufferSize(sr,
+                                        AudioFormat.CHANNEL_OUT_MONO,
+                                        AudioFormat.ENCODING_PCM_16BIT);
+                                AudioTrack audioTrack = new AudioTrack(AudioManager.STREAM_MUSIC, sr,
+                                        AudioFormat.CHANNEL_OUT_MONO,
+                                        AudioFormat.ENCODING_PCM_16BIT,
+                                        buffsize, AudioTrack.MODE_STREAM);
+                                short samples[] = new short[buffsize];
+                                int amp = 10000;
+                                double twopi = 8.0 * Math.atan(1.0);
+                                double fr;
+                                double ph = 0.0;
+                                try {
+                                    audioTrack.play();
+                                }
+                                catch (Exception e) {
+                                    if(audioTrack != null){
+                                        audioTrack.release();
+                                    }
+                                    return;
+                                }
+
+                                // randomization loop
+                                try {
+                                    while (!Thread.currentThread().isInterrupted()) {
+                                        // fill the buffer
+                                        for (int i = 0; i < buffsize; i++) {
+                                            samples[i] = (short) (amp * Math.sin(ph));
+                                            double tempph = 0.0;
+                                            for (int j = 0; j < 10; j++) {
+                                                fr = (double) ((rfrequency.nextInt(3400 - 300) + 1) + 300);
+                                                short prev = (short) (amp * Math.sin(tempph));
+                                                short curr = (short) (amp * Math.sin(ph + twopi * fr / sr));
+                                                if (Math.abs(curr) > Math.abs(prev)) {
+                                                    tempph = ph + twopi * fr / sr;
+                                                }
+                                            }
+                                            //ph += twopi*fr/sr;
+                                            ph = tempph;
+                                        }
+                                        // randomly swap a wave in the buffer with a new one
+                                        int selection = bonus.nextInt(samples.length);
+                                        fr = (double) ((rfrequency.nextInt(3400 - 300) + 1) + 300);
+                                        samples[selection] = (short) (amp * Math.sin(ph + twopi * fr / sr));
+                                        audioTrack.write(samples, 0, buffsize);
+                                    }
+                                    if(audioTrack != null)
+                                    {
+                                        audioTrack.stop();
+                                        audioTrack.release();
+                                    }
+                                }
+                                catch(Exception e) {
+                                    //if(audioTrack != null) {
+                                        audioTrack.stop();
+                                        audioTrack.release();
+                                    //}
+                                    return;
+                                }
+                            }
+                        };
                         t.start();
                     }
                 }
@@ -420,8 +478,7 @@ public class MainActivity extends AppCompatActivity {
                                 while ((inputLine = in.readLine()) != null) {
                                     response.append(inputLine);
                                 }
-                                System.out.println(response);
-                                //File f = new File(MainActivity.this.getFilesDir(), "tips.xml");
+
                                 FileOutputStream os;
                                 try
                                 {
@@ -429,42 +486,76 @@ public class MainActivity extends AppCompatActivity {
                                     os.write(response.toString().getBytes());
                                     os.close();
                                 }
-                                catch (Exception e) { e.printStackTrace();}
-                                /*try {
+                                catch (Exception e) {
+                                    e.printStackTrace();
+                                    if(conn != null)
+                                    {
+                                        conn.disconnect();
+                                    }
+                                    return;
+                                }
+                                try {
+                                    // Parse the xml tree to access individual elements
                                     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                                     DocumentBuilder builder = factory.newDocumentBuilder();
                                     InputSource is = new InputSource(new StringReader(response.toString()));
                                     Document document = builder.parse(is);
                                     document.getDocumentElement().normalize();
                                     NodeList nList = document.getElementsByTagName("item");
-                                    for(int tmp = 0; tmp < nList.getLength(); tmp++)
-                                    {
-                                        System.out.println(nList.item(tmp).getTextContent());
+
+                                    FileOutputStream out = null;
+                                    String tip = null;
+                                    try {
+                                        out = MainActivity.this.openFileOutput("tips.txt", Context.MODE_PRIVATE);
+                                        try
+                                        {
+                                            for(int tmp = 0; tmp < nList.getLength(); tmp++)
+                                            {
+                                                tip = nList.item(tmp).getTextContent()+"\n";
+
+                                                // Get rid of escaped characters
+                                                tip = tip.replaceAll("\\\\", "");
+                                                out.write(tip.getBytes());
+                                            }
+                                        }
+                                        catch(IOException e) { /* TODO: log errors */}
+                                        System.out.println("Saved tips.");
                                     }
+                                    catch (FileNotFoundException e)
+                                    { /* Do nothing if we can't save the file for some reason */ }
+                                    finally
+                                    {
+                                        if(out != null)
+                                        {
+                                            try { out.close(); } catch (Throwable ignore) { }
+                                        }
+                                    }
+
+
+
+
                                 }
                                 catch (SAXException e){System.out.println("SAMException");}
                                 catch (ParserConfigurationException e){
                                     System.out.println("Failed to parse.");
-                                }*/
-                                in.close();
+                                }
+                                finally {
+                                    in.close();
+                                }
                             }
-                            catch (IOException e) {e.printStackTrace();}
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
 
                         }
                         catch (MalformedURLException e) {
                             e.printStackTrace();
-                            //Snackbar.make(mLayout, "Malformed URL Exception",
-                            //Snackbar.LENGTH_SHORT).show();
                         }
                         catch(SocketTimeoutException e) {
                             e.printStackTrace();
-                            //Snackbar.make(mLayout, "Socket Timeout Exception",
-                            //Snackbar.LENGTH_SHORT).show();
                         }
                         catch (IOException e) {
                             e.printStackTrace();
-                            //Snackbar.make(mLayout, "IOException",
-                            //Snackbar.LENGTH_SHORT).show();
                         }
                         finally
                         {
@@ -480,32 +571,32 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private float x1;
+    private float xcoord_1;
 
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-        float x2;
+        float xcoord_2;
         switch(event.getAction())
         {
-            case MotionEvent.ACTION_DOWN:
-                x1 = event.getX();
+            case MotionEvent.ACTION_DOWN: // On screen press
+                xcoord_1 = event.getX();
                 break;
-            case MotionEvent.ACTION_UP:
-                x2 = event.getX();
-                float deltax = x2-x1;
-                if(Math.abs(deltax) > MIN_DISTANCE)
+            case MotionEvent.ACTION_UP: // On screen release
+                xcoord_2 = event.getX();
+                float deltax = xcoord_2-xcoord_1;
+                if(Math.abs(deltax) > MIN_DISTANCE) // ignore anything that's not a swipe
                 {
-                    if (x2 > x1) // left to right swipe
+                    if (xcoord_2 > xcoord_1) // left to right swipe
                     {
                         startActivity(new Intent(MainActivity.this, Info.class));
                     }
-                    if (x1 > x2) // right to left swipe
+                    if (xcoord_1 > xcoord_2) // right to left swipe
                     {
                         startActivity(new Intent(MainActivity.this, Help.class));
                     }
-                    break;
                 }
+                break;
         }
         return super.onTouchEvent(event);
     }
