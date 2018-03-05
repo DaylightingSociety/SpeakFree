@@ -1,6 +1,7 @@
 package org.daylightingsociety.speakfree;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,6 +27,7 @@ import android.view.animation.Animation;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Document;
@@ -310,6 +312,7 @@ public class MainActivity extends AppCompatActivity {
                     if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
                             Manifest.permission.INTERNET))
                     { // If we need to explain why we want the permission
+                        mLayout = findViewById(R.id.activity_main);
                         Snackbar.make(mLayout, R.string.permission_internet_rationale, Snackbar.LENGTH_INDEFINITE)
                                 .setAction(R.string.ok, new View.OnClickListener()
                             {
@@ -335,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
                     builder.setTitle("Suggest a new tip");
 
                     final EditText input = new EditText(MainActivity.this);
-                    input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE);
+                    input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
                     builder.setView(input);
 
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -378,6 +381,36 @@ public class MainActivity extends AppCompatActivity {
 
 
                                         int responseCode = conn.getResponseCode();
+                                        if(responseCode == 200)
+                                        {
+                                            mLayout = findViewById(R.id.activity_main);
+                                            Snackbar.make(mLayout, R.string.tip_submitted, Snackbar.LENGTH_INDEFINITE)
+                                                    .setAction(R.string.ok, new View.OnClickListener()
+                                                    {
+                                                        @Override
+                                                        public void onClick(View view)
+                                                        {
+                                                            ActivityCompat.requestPermissions(MainActivity.this,
+                                                                    new String[]{Manifest.permission.INTERNET},
+                                                                    REQUEST_INTERNET);
+                                                        }
+                                                    }).show();
+                                        }
+                                        else
+                                        {
+                                            mLayout = findViewById(R.id.activity_main);
+                                            Snackbar.make(mLayout, R.string.tip_submitted_error, Snackbar.LENGTH_INDEFINITE)
+                                                    .setAction(R.string.ok, new View.OnClickListener()
+                                                    {
+                                                        @Override
+                                                        public void onClick(View view)
+                                                        {
+                                                            ActivityCompat.requestPermissions(MainActivity.this,
+                                                                    new String[]{Manifest.permission.INTERNET},
+                                                                    REQUEST_INTERNET);
+                                                        }
+                                                    }).show();
+                                        }
 
                                         BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                                         String inputLine;
@@ -436,6 +469,7 @@ public class MainActivity extends AppCompatActivity {
                     if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,
                             Manifest.permission.INTERNET))
                     { // If we need to explain why we want the permission
+                        mLayout = findViewById(R.id.activity_main);
                         Snackbar.make(mLayout, R.string.permission_internet_rationale, Snackbar.LENGTH_INDEFINITE)
                                 .setAction(R.string.ok, new View.OnClickListener()
                                 {
@@ -456,149 +490,162 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 else
-                {AsyncTask.execute(new Runnable()
                 {
-                    @Override
-                    public void run()
-                    {
-                        HttpsURLConnection conn = null;
-                        try {
-                            URL tipAddress = new URL("https://speakfree.daylightingsociety.org/getTips/android");
-                            conn = (HttpsURLConnection) tipAddress.openConnection();
-                            conn.setReadTimeout(10000);
-                            conn.setConnectTimeout(15000);
-                            conn.setRequestMethod("GET");
-                            conn.setDoInput(true);
-
-                            int responseCode = conn.getResponseCode();
-                            try {
-                                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                                String inputLine;
-                                StringBuffer response = new StringBuffer();
-                                while ((inputLine = in.readLine()) != null) {
-                                    response.append(inputLine);
-                                }
-
-                                FileOutputStream os;
-                                try
-                                {
-                                    os = openFileOutput("tips.xml", MODE_PRIVATE);
-                                    os.write(response.toString().getBytes());
-                                    os.close();
-                                }
-                                catch (Exception e) {
-                                    e.printStackTrace();
-                                    if(conn != null)
-                                    {
-                                        conn.disconnect();
-                                    }
-                                    return;
-                                }
-                                try {
-                                    // Parse the xml tree to access individual elements
-                                    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                                    DocumentBuilder builder = factory.newDocumentBuilder();
-                                    InputSource is = new InputSource(new StringReader(response.toString()));
-                                    Document document = builder.parse(is);
-                                    document.getDocumentElement().normalize();
-                                    NodeList nList = document.getElementsByTagName("item");
-
-                                    FileOutputStream out = null;
-                                    String tip = null;
-                                    try {
-                                        out = MainActivity.this.openFileOutput("tips.txt", Context.MODE_PRIVATE);
-                                        try
-                                        {
-                                            for(int tmp = 0; tmp < nList.getLength(); tmp++)
-                                            {
-                                                tip = nList.item(tmp).getTextContent()+"\n";
-
-                                                // Get rid of escaped characters
-                                                tip = tip.replaceAll("\\\\", "");
-                                                out.write(tip.getBytes());
-                                            }
-                                        }
-                                        catch(IOException e) { /* TODO: log errors */}
-                                        System.out.println("Saved tips.");
-                                    }
-                                    catch (FileNotFoundException e)
-                                    { /* Do nothing if we can't save the file for some reason */ }
-                                    finally
-                                    {
-                                        if(out != null)
-                                        {
-                                            try { out.close(); } catch (Throwable ignore) { }
-                                        }
-                                    }
-
-
-
-
-                                }
-                                catch (SAXException e){System.out.println("SAMException");}
-                                catch (ParserConfigurationException e){
-                                    System.out.println("Failed to parse.");
-                                }
-                                finally {
-                                    in.close();
-                                }
-                            }
-                            catch (IOException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                        catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        }
-                        catch(SocketTimeoutException e) {
-                            e.printStackTrace();
-                        }
-                        catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        finally
-                        {
-                            if(conn != null)
-                            {
-                                conn.disconnect();
-                            }
-                        }
-                    }
-                });
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("Confirm")
+                            .setMessage("Download new anti-surveillance tips?")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    refreshTips();
+                                }})
+                            .setNegativeButton(android.R.string.no, null).show();
                 }
             }
         });
     }
 
-    private float xcoord_1;
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event)
+    private void refreshTips()
     {
-        float xcoord_2;
-        switch(event.getAction())
+        AsyncTask.execute(new Runnable()
         {
-            case MotionEvent.ACTION_DOWN: // On screen press
-                xcoord_1 = event.getX();
-                break;
-            case MotionEvent.ACTION_UP: // On screen release
-                xcoord_2 = event.getX();
-                float deltax = xcoord_2-xcoord_1;
-                if(Math.abs(deltax) > MIN_DISTANCE) // ignore anything that's not a swipe
-                {
-                    if (xcoord_2 > xcoord_1) // left to right swipe
-                    {
-                        startActivity(new Intent(MainActivity.this, Info.class));
+            @Override
+            public void run()
+            {
+                HttpsURLConnection conn = null;
+                try {
+                    URL tipAddress = new URL("https://speakfree.daylightingsociety.org/getTips/android");
+                    conn = (HttpsURLConnection) tipAddress.openConnection();
+                    conn.setReadTimeout(10000);
+                    conn.setConnectTimeout(15000);
+                    conn.setRequestMethod("GET");
+                    conn.setDoInput(true);
+
+                    int responseCode = conn.getResponseCode();
+                    try {
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String inputLine;
+                        StringBuffer response = new StringBuffer();
+                        while ((inputLine = in.readLine()) != null) {
+                            response.append(inputLine);
+                        }
+
+                        FileOutputStream os;
+                        try
+                        {
+                            os = openFileOutput("tips.xml", MODE_PRIVATE);
+                            os.write(response.toString().getBytes());
+                            os.close();
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            if(conn != null)
+                            {
+                                conn.disconnect();
+                            }
+                            return;
+                        }
+                        try {
+                            // Parse the xml tree to access individual elements
+                            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                            DocumentBuilder builder = factory.newDocumentBuilder();
+                            InputSource is = new InputSource(new StringReader(response.toString()));
+                            Document document = builder.parse(is);
+                            document.getDocumentElement().normalize();
+                            NodeList nList = document.getElementsByTagName("item");
+
+                            FileOutputStream out = null;
+                            String tip = null;
+                            try {
+                                out = MainActivity.this.openFileOutput("tips.txt", Context.MODE_PRIVATE);
+                                try
+                                {
+                                    for(int tmp = 0; tmp < nList.getLength(); tmp++)
+                                    {
+                                        tip = nList.item(tmp).getTextContent()+"\n";
+
+                                        // Get rid of escaped characters
+                                        tip = tip.replaceAll("\\\\", "");
+                                        out.write(tip.getBytes());
+                                    }
+                                }
+                                catch(IOException e) { /* TODO: log errors */}
+                                System.out.println("Saved tips.");
+                            }
+                            catch (FileNotFoundException e)
+                            { /* Do nothing if we can't save the file for some reason */ }
+                            finally
+                            {
+                                if(out != null)
+                                {
+                                    try { out.close(); } catch (Throwable ignore) { }
+                                }
+                            }
+
+
+
+
+                        }
+                        catch (SAXException e){System.out.println("SAMException");}
+                        catch (ParserConfigurationException e){
+                            System.out.println("Failed to parse.");
+                        }
+                        finally {
+                            in.close();
+                        }
                     }
-                    if (xcoord_1 > xcoord_2) // right to left swipe
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if(responseCode == 200)
                     {
-                        startActivity(new Intent(MainActivity.this, Help.class));
+                        mLayout = findViewById(R.id.activity_main);
+                        Snackbar.make(mLayout, R.string.tips_refreshed, Snackbar.LENGTH_INDEFINITE)
+                                .setAction(R.string.ok, new View.OnClickListener()
+                                {
+                                    @Override
+                                    public void onClick(View view)
+                                    {
+                                        ActivityCompat.requestPermissions(MainActivity.this,
+                                                new String[]{Manifest.permission.INTERNET},
+                                                REQUEST_INTERNET);
+                                    }
+                                }).show();
+                    }
+                    else
+                    {
+                        mLayout = findViewById(R.id.activity_main);
+                        Snackbar.make(mLayout, R.string.tips_refreshed_error, Snackbar.LENGTH_INDEFINITE)
+                                .setAction(R.string.ok, new View.OnClickListener()
+                                {
+                                    @Override
+                                    public void onClick(View view)
+                                    {
+                                        ActivityCompat.requestPermissions(MainActivity.this,
+                                                new String[]{Manifest.permission.INTERNET},
+                                                REQUEST_INTERNET);
+                                    }
+                                }).show();
                     }
                 }
-                break;
-        }
-        return super.onTouchEvent(event);
+                catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                catch(SocketTimeoutException e) {
+                    e.printStackTrace();
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+                finally
+                {
+                    if(conn != null)
+                    {
+                        conn.disconnect();
+                    }
+                }
+            }
+        });
+        MainActivity.this.recreate();
     }
 
     @Override
@@ -610,6 +657,7 @@ public class MainActivity extends AppCompatActivity {
             Log.i(TAG, "Received response for Internet permission request.");
             if(grantResults.length != 1 || grantResults[0] != PackageManager.PERMISSION_GRANTED)
             { // Permission not granted
+                mLayout = findViewById(R.id.activity_main);
                 Log.i(TAG, "INTERNET permission was NOT granted.");
                 Snackbar.make(mLayout, R.string.permissions_not_granted,
                         Snackbar.LENGTH_SHORT).show();
