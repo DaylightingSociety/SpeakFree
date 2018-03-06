@@ -42,7 +42,7 @@ public class Info extends AppCompatActivity {
                 x2 = event.getX();
                 if(x2 > x1) // left to right swipe
                 {
-                    float deltax = x1-x2;
+                    float deltax = x2-x1;
                     if(deltax > MIN_DISTANCE)
                     {
                         finish();

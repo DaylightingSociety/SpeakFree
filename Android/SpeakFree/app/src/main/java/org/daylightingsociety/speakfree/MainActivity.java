@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                     {
                         isplaying = false;
                         ImageButton playButton = (ImageButton) findViewById(R.id.imageButton_playButton);
-                        playButton.setBackgroundResource(R.drawable.play);
+                        playButton.setImageResource(R.drawable.play);
                         ImageView statusImage =(ImageView) findViewById(R.id.status_image);
                         statusImage.setImageResource(R.drawable.inactive);
                         if(t != null) {
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                     {
                         isplaying = true;
                         ImageButton playButton = (ImageButton) findViewById(R.id.imageButton_playButton);
-                        playButton.setBackgroundResource(R.drawable.pause);
+                        playButton.setImageResource(R.drawable.pause);
                         ImageView statusImage =(ImageView) findViewById(R.id.status_image);
                         statusImage.setImageResource(R.drawable.active);
 
