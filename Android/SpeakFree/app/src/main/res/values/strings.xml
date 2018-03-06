@@ -32,4 +32,8 @@
     <string name="stay_safe">Stay safe</string>
     <string name="ok">@android:string/ok</string>
     <string name="main_warning">Warning: Loud noise - Set your volume low before starting.</string>
+    <string name="tip_submitted">Your tip has been successfully submitted!</string>
+    <string name="tip_submitted_error">There was an error submitting your tip. If the problem persists, please contact us at speakfree@daylightingsociety.org.</string>
+    <string name="tips_refreshed">Tips have been refreshed!</string>
+    <string name="tips_refreshed_error">There was an error refreshing tips. If the problem persists, please contact us at speakfree@daylightingsociety.org.</string>
 </resources>

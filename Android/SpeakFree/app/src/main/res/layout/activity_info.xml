@@ -26,14 +26,16 @@
         <ImageButton
             android:contentDescription="@string/return_button_desc"
             android:id="@+id/imageButton_info_return"
+            android:layout_weight="1"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/arrow_right"
+            android:src="@drawable/arrow_left"
+            android:background="@drawable/button_selector"
             android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/footer"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
